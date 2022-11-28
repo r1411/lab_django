@@ -1,0 +1,8 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{artist.name}}</h5>
+        <p class="card-text">Количество треков: {{artist.get_tracks_count}}</p>
+
+        <a href="{% url 'view_artist' artist_id %}" class="btn btn-primary">Посмотреть</a>
+    </div>
+</div>
