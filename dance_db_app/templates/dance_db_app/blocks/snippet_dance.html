@@ -1,0 +1,8 @@
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">{{dance.title}}</h5>
+        <p class="card-text">Под трек: {{dance.track.artist.name}} - {{dance.track.title}}</p>
+
+        <a href="{% url 'view_dance' dance_id %}" class="btn btn-primary">Посмотреть</a>
+    </div>
+</div>

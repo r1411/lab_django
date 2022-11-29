@@ -10,7 +10,7 @@
             <h3>Артисты</h3>
             {% if artists %}
                 {% for artist in artists %}
-                    <div class="mb-4">
+                    <div class="mb-4 mx-4">
                         {% include "dance_db_app/blocks/snippet_artist.html" with artist=artist artist_id=artist.pk%}
                     </div>
                 {% endfor %}
@@ -19,12 +19,24 @@
         </div>
         <div class="col">
             <h3>Треки</h3>
-            <!--{% include "dance_db_app/blocks/snippet_artist.html" with artist_id="1"%}
+            {% if tracks %}
+                {% for track in tracks %}
+                    <div class="mb-4 mx-4">
+                        {% include "dance_db_app/blocks/snippet_track.html" with track=track track_id=track.pk%}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <a href="#" class="link-primary h3">Показать все</a> <!--TODO: Делать через %url% -->
         </div>
         <div class="col">
             <h3>Танцы</h3>
-            <!--{% include "dance_db_app/blocks/snippet_artist.html" with artist_id="1"%}
+            {% if dances %}
+                {% for dance in dances %}
+                    <div class="mb-4 mx-4">
+                        {% include "dance_db_app/blocks/snippet_dance.html" with dance=dance dance_id=dance.pk%}
+                    </div>
+                {% endfor %}
+            {% endif %}
             <a href="#" class="link-primary h3">Показать все</a> <!--TODO: Делать через %url% -->
         </div>
     </div>

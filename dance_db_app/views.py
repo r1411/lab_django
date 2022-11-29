@@ -1,15 +1,19 @@
 from django.shortcuts import render
 from django.template import loader
 from django.http import HttpResponse, Http404
-from .models import Artist
+from .models import Artist, Track, Dance
 
 # Create your views here.
 def index(request):
     latest_artists_list = Artist.objects.order_by('-id')[:3]
+    latest_tracks_list = Track.objects.order_by('-id')[:3]
+    latest_dances_list = Dance.objects.order_by('-id')[:3]
 
     template = loader.get_template('dance_db_app/index.html')
     context = {
-        'artists': latest_artists_list
+        'artists': latest_artists_list,
+        'tracks': latest_tracks_list,
+        'dances': latest_dances_list,
     }
     return HttpResponse(template.render(context, request))
 
