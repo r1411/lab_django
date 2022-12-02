@@ -4,22 +4,18 @@
 
 {% block page_content %}
 
-<div class="container-fluid text-center">
-    <table class="table">
-        <tr>
-            <th>Артист</th>
-            <th>Название</th>
-            <th>Длина</th>
-        </tr>
-        {% for track in tracks %}
-        <tr>
-            <td>{{track.artist.name}}</td>
-            <td>{{track.title}}</td>
-            <td>{{track.duration}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+<table class="table table-hover">
+    <tr>
+        <th>Артист</th>
+        <th>Название</th>
+    </tr>
+    {% for track in tracks %}
+    <tr style="cursor: pointer" onclick="window.location='{% url 'view_track' track.pk %}'">
+        <td>{{track.artist.name}}</td>
+        <td>{{track.title}}</td>
+    </tr>
+    {% endfor %}
+</table>
     
 
 {% endblock page_content %}

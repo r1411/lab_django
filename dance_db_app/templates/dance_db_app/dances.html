@@ -4,22 +4,18 @@
 
 {% block page_content %}
 
-<div class="container-fluid text-center">
-    <table class="table">
-        <tr>
-            <th>Название</th>
-            <th>Сложность</th>
-            <th>Трек</th>
-        </tr>
-        {% for dance in dances %}
-        <tr>
-            <td>{{dance.title}}</td>
-            <td>{{dance.difficulty}}</td>
-            <td>{{dance.track.artist.name}} - {{dance.track.title}}</td>
-        </tr>
-        {% endfor %}
-    </table>
-</div>
+<table class="table table-hover">
+    <tr>
+        <th>Название</th>
+        <th>Под трек</th>
+    </tr>
+    {% for dance in dances %}
+    <tr style="cursor: pointer" onclick="window.location='{% url 'view_dance' dance.pk %}'">
+        <td>{{dance.title}}</td>
+        <td>{{dance.track.artist.name}} - {{dance.track.title}}</td>
+    </tr>
+    {% endfor %}
+</table>
     
 
 {% endblock page_content %}
