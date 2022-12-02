@@ -1,0 +1,25 @@
+{% extends 'dance_db_app/blocks/page_base.html' %}
+
+{% block page_title %}Список артистов{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container-fluid text-center">
+    <table class="table">
+        <tr>
+            <th>Имя</th>
+            <th>Страна</th>
+            <th>День рождения</th>
+        </tr>
+        {% for artist in artists %}
+        <tr>
+            <td>{{artist.name}}</td>
+            <td>{{artist.country}}</td>
+            <td>{{artist.birthday}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+    
+
+{% endblock page_content %}

@@ -1,0 +1,13 @@
+{% extends 'dance_db_app/blocks/page_base.html' %}
+
+{% block page_title %}Карточка артиста{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+    <span class="h3">{{artist.name}}</span>
+    <img class="ms-2 float-top" src="https://flagsapi.com/{{artist.country}}/flat/32.png">
+</div>
+    
+
+{% endblock page_content %}
