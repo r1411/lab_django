@@ -9,7 +9,7 @@
         <div class="col">
             <div class="mb-4">
             <h3 class="d-inline">Артисты</h3>
-            <a href="{% url 'view_add_artist' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square"></a>
+            <a href="{% url 'view_add_artist' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square ms-2"></a>
             </div>
             {% if artists %}
                 {% for artist in artists %}
@@ -23,7 +23,7 @@
         <div class="col">
             <div class="mb-4">
                 <h3 class="d-inline">Треки</h3>
-                <a href="{% url 'view_add_track' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square"></a>
+                <a href="{% url 'view_add_track' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square ms-2"></a>
                 </div>
             {% if tracks %}
                 {% for track in tracks %}
@@ -37,7 +37,7 @@
         <div class="col">
             <div class="mb-4">
                 <h3 class="d-inline">Танцы</h3>
-                <a href="{% url 'view_add_dance' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square"></a>
+                <a href="{% url 'view_add_dance' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square ms-2"></a>
                 </div>
             {% if dances %}
                 {% for dance in dances %}
