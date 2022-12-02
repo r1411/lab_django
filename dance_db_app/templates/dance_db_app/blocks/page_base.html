@@ -14,7 +14,7 @@
 <body>
     <div class="bg-body ps-4 py-2 shadow-sm">
         <a href="{% url 'index' %}" style="display: inline; font-size: 2rem" class="bi bi-house-fill link-dark"></a>
-        <h2 style="display: inline">{% block page_title %}Имя раздела{% endblock page_title %}</h2>
+        <h2 style="display: inline" class="ms-2">{% block page_title %}Имя раздела{% endblock page_title %}</h2>
     </div>
     <div class="bg-body px-5 mt-4">
         {% block page_content %}Контент{% endblock page_content %}
