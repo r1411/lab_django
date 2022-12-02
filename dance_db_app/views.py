@@ -49,3 +49,38 @@ def view_dances(request):
         'dances': Dance.objects.all()
     }
     return HttpResponse(template.render(context, request))
+
+def view_add_artist(request):
+    template = loader.get_template('dance_db_app/add_artist.html')
+    context = {
+
+    }
+    if all(['artist_name' in request.POST, 'artist_birthday' in request.POST, 'artist_country' in request.POST]):
+        artist = Artist(name=request.POST['artist_name'], birthday=request.POST['artist_birthday'], country=request.POST['artist_country'])
+        artist.save()
+        context['msg'] = f'Артист {request.POST["artist_name"]} успешно добавлен!'
+    return HttpResponse(template.render(context, request))
+
+def view_add_track(request):
+    template = loader.get_template('dance_db_app/add_track.html')
+    context = {
+        'artists': Artist.objects.all()
+    }
+    if all(['artist_id' in request.POST, 'track_title' in request.POST, 'track_duration' in request.POST]):
+        track_artist = get_object_or_404(Artist, pk=request.POST['artist_id'])
+        track = Track(title=request.POST['track_title'], duration=request.POST['track_duration'], artist=track_artist)
+        track.save()
+        context['msg'] = f'Трек {request.POST["track_title"]} успешно добавлен!'
+    return HttpResponse(template.render(context, request))
+
+def view_add_dance(request):
+    template = loader.get_template('dance_db_app/add_dance.html')
+    context = {
+        'tracks': Track.objects.all()
+    }
+    if all(['track_id' in request.POST, 'dance_title' in request.POST, 'dance_difficulty' in request.POST]):
+        dance_track = get_object_or_404(Track, pk=request.POST['track_id'])
+        dance = Dance(title=request.POST['dance_title'], difficulty=request.POST['dance_difficulty'], track=dance_track)
+        dance.save()
+        context['msg'] = f'Танец {request.POST["dance_title"]} успешно добавлен!'
+    return HttpResponse(template.render(context, request))

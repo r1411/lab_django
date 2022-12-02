@@ -1,0 +1,33 @@
+{% extends 'dance_db_app/blocks/page_base.html' %}
+
+{% block page_title %}Добавление танца{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+    <form action="{% url 'view_add_dance' %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <label class="form-label" for="track_id">Трек</label>
+            <select class="form-select" aria-label="Default select example" name="track_id" required>
+                {% for track in tracks %}
+                <option value="{{track.pk}}">{{track.artist.name}} - {{track.title}}</option>
+                {% endfor %}
+            </select>
+            <br>
+            <label class="form-label" for="dance_title">Название танца</label>
+            <input class="form-control" type="text" name="dance_title" required>
+            <br>
+            <label class="form-label" for="dance_difficulty">Сложность танца</label>
+            <input class="form-control" type="number" name="dance_difficulty" required>
+            <br>
+            <input type="submit" class="btn btn-primary">
+
+        </fieldset>
+    </form>
+
+    {% if msg %}<h4 class="mt-4">{{ msg }}</h4>{% endif %}
+</div>
+    
+
+{% endblock page_content %}

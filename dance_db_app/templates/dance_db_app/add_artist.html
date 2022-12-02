@@ -1,0 +1,28 @@
+{% extends 'dance_db_app/blocks/page_base.html' %}
+
+{% block page_title %}Добавление артиста{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+    <form action="{% url 'view_add_artist' %}" method="POST">
+        {% csrf_token %}
+        <fieldset>
+            <label class="form-label" for="artist_name">Имя артиста</label>
+            <input class="form-control" type="text" name="artist_name" required>
+            <br>
+            <label class="form-label" for="artist_birthday">ДР артиста (yyyy-mm-dd)</label>
+            <input class="form-control" type="text" name="artist_birthday" required>
+            <br>
+            <label class="form-label" for="artist_country">Страна артиста</label>
+            <input class="form-control" type="text" name="artist_country" required>
+            <br>
+            <input type="submit" class="btn btn-primary">
+        </fieldset>
+    </form>
+
+    {% if msg %}<h4 class="mt-4">{{ msg }}</h4>{% endif %}
+</div>
+    
+
+{% endblock page_content %}

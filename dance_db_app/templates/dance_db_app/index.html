@@ -7,7 +7,10 @@
 <div class="container-fluid text-center">
     <div class="row">
         <div class="col">
-            <h3>Артисты</h3>
+            <div class="mb-4">
+            <h3 class="d-inline">Артисты</h3>
+            <a href="{% url 'view_add_artist' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square"></a>
+            </div>
             {% if artists %}
                 {% for artist in artists %}
                     <div class="mb-4 mx-4">
@@ -18,7 +21,10 @@
             <a href="{% url 'view_all_artists' %}" class="link-primary h3">Показать все</a>
         </div>
         <div class="col">
-            <h3>Треки</h3>
+            <div class="mb-4">
+                <h3 class="d-inline">Треки</h3>
+                <a href="{% url 'view_add_track' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square"></a>
+                </div>
             {% if tracks %}
                 {% for track in tracks %}
                     <div class="mb-4 mx-4">
@@ -29,7 +35,10 @@
             <a href="{% url 'view_all_tracks' %}" class="link-primary h3">Показать все</a>
         </div>
         <div class="col">
-            <h3>Танцы</h3>
+            <div class="mb-4">
+                <h3 class="d-inline">Танцы</h3>
+                <a href="{% url 'view_add_dance' %}" style="link-primary; font-size: 1.75rem" class="d-inline bi bi-plus-square"></a>
+                </div>
             {% if dances %}
                 {% for dance in dances %}
                     <div class="mb-4 mx-4">
