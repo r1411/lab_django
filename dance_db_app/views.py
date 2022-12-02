@@ -84,3 +84,18 @@ def view_add_dance(request):
         dance.save()
         context['msg'] = f'Танец {request.POST["dance_title"]} успешно добавлен!'
     return HttpResponse(template.render(context, request))
+
+def view_edit_dance(request, dance_id):
+    template = loader.get_template('dance_db_app/edit_dance.html')
+    dance = get_object_or_404(Dance, pk=dance_id)
+    context = {
+        'dance': dance,
+        'tracks': Track.objects.all()
+    }
+    if all(['track_id' in request.POST, 'dance_title' in request.POST, 'dance_difficulty' in request.POST]):
+        dance.track = get_object_or_404(Track, pk=request.POST['track_id'])
+        dance.title = request.POST['dance_title']
+        dance.difficulty = request.POST['dance_difficulty']
+        dance.save()
+        context['msg'] = f'Танец изменен!'
+    return HttpResponse(template.render(context, request))

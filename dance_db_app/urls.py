@@ -12,6 +12,8 @@ urlpatterns = [
     path('track/add/', views.view_add_track, name="view_add_track"),
     path('dance/add/', views.view_add_dance, name="view_add_dance"),
 
+    path('dance/<int:dance_id>/edit/', views.view_edit_dance, name="view_edit_dance"),
+
     path('artists/', views.view_artists, name="view_all_artists"),
     path('tracks/', views.view_tracks, name="view_all_tracks"),
     path('dances/', views.view_dances, name="view_all_dances"),

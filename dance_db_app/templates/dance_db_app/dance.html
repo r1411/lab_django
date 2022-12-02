@@ -10,7 +10,7 @@
     </div>
     <p>Сложность: <strong>{{dance.difficulty}} звезд</strong></p>
     <p>Трек: <a class="link-primary" href="{% url 'view_track' dance.track.pk %}">{{dance.track.artist.name}} - {{dance.track.title}}</a></strong></p>
-        
+    <a class="h4 link-primary" href="{% url 'view_edit_dance' dance.pk %}">Редактировать</a>
 </div>
     
 
