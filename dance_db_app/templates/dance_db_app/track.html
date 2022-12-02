@@ -1,0 +1,29 @@
+{% extends 'dance_db_app/blocks/page_base.html' %}
+
+{% block page_title %}Просмотр трека{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+    <div>
+        <span class="h3 align-middle"><a class="link-dark" href="{% url 'view_artist' track.artist.pk %}">{{track.artist.name}}</a> - {{track.title}}</span>
+    </div>
+    <p>Длина трека: <strong>{{track.duration}} сек.</strong></p>
+    <p>Танцы под этот трек:</p>
+    <table class="table table-hover">
+        <tr>
+            <th>Название</th>
+            <th>Сложность</th>
+        </tr>
+        {% for dance in track.dance_set.all %}
+        <tr style="cursor: pointer" onclick="window.location='{% url 'view_dance' dance.pk %}'">
+            <td>{{dance.title}}</td>
+            <td>{{dance.difficulty}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+        
+</div>
+    
+
+{% endblock page_content %}

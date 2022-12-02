@@ -1,0 +1,17 @@
+{% extends 'dance_db_app/blocks/page_base.html' %}
+
+{% block page_title %}Просмотр танца{% endblock page_title %}
+
+{% block page_content %}
+
+<div class="container-fluid">
+    <div>
+        <span class="h3 align-middle">{{dance.title}}</span>
+    </div>
+    <p>Сложность: <strong>{{dance.difficulty}} звезд</strong></p>
+    <p>Трек: <a class="link-primary" href="{% url 'view_track' dance.track.pk %}">{{dance.track.artist.name}} - {{dance.track.title}}</a></strong></p>
+        
+</div>
+    
+
+{% endblock page_content %}

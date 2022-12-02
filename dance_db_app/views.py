@@ -22,10 +22,12 @@ def view_artist(request, artist_id):
     return render(request, 'dance_db_app/artist.html', {'artist': artist})
 
 def view_track(request, track_id):
-    return HttpResponse(f"You're looking at track {track_id}.")
+    track = get_object_or_404(Track, pk=track_id)
+    return render(request, 'dance_db_app/track.html', {'track': track})
 
 def view_dance(request, dance_id):
-    return HttpResponse(f"You're looking at dance {dance_id}.")
+    dance = get_object_or_404(Dance, pk=dance_id)
+    return render(request, 'dance_db_app/dance.html', {'dance': dance})
 
 def view_artists(request):
     template = loader.get_template('dance_db_app/artists.html')
